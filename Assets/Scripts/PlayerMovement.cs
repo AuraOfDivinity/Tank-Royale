@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviourPun, IPunObservable
     public float moveSpeed = 3;
     Vector2 movement;
     public float direction;
+
     Vector2 receivedMovement;
 
     public Animator animator;
@@ -17,6 +18,9 @@ public class PlayerMovement : MonoBehaviourPun, IPunObservable
     public GameObject playerCamera;
 
     public Text nameText;
+
+    [SerializeField] private HealthBar healthBar;
+    private float health = 1f;
 
     //PhotonViews are used to sync the player animations of multiple players
     public PhotonView pv;
@@ -83,6 +87,28 @@ public class PlayerMovement : MonoBehaviourPun, IPunObservable
         {
             smoothMove = (Vector3)stream.ReceiveNext();
             receivedMovement = (Vector2)stream.ReceiveNext();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (health > .01f)
+        {
+            health -= .2f;
+            healthBar.SetSize(health);
+
+            if (health < .5f)
+            {
+                // Under 30% health
+                if ((int)(health * 100f) % 3 == 0)
+                {
+                    healthBar.SetColor(Color.white);
+                }
+                else
+                {
+                    healthBar.SetColor(Color.red);
+                }
+            }
         }
     }
 }

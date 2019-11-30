@@ -12,16 +12,22 @@ public class Bullet : MonoBehaviourPun
     public Transform tf;
     public float bulletForce = 30f;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("CAAAAAAAAAAAAAAAAAAAAAAAAAAAALLLLLLLLLLLLLLLLLLLLLLLEEEEEEEEEEEEDDDDDDDDDDDDDD");
-        GameObject effect =  Instantiate(hitEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);
-        Destroy(gameObject);
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Debug.Log("CAAAAAAAAAAAAAAAAAAAAAAAAAAAALLLLLLLLLLLLLLLLLLLLLLLEEEEEEEEEEEEDDDDDDDDDDDDDD");
+    //    GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+    //    Destroy(effect, 5f);
+    //    Destroy(gameObject);
+    //}
 
     void Start()
     {
         rb.AddForce(tf.up * bulletForce,ForceMode2D.Impulse);
+        Destroy(gameObject, 5f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);
     }
 }
