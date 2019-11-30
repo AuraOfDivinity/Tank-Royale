@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  direction: 0
   animator: {fileID: 3683336719378831502}
   playerCamera: {fileID: 3425641609647305363}
   nameText: {fileID: 1900179514836493891}
