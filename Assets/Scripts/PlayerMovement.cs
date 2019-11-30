@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviourPun, IPunObservable
 {
     public float moveSpeed = 3;
-    Vector2 lastMovement;
+    Vector2 movement;
     public float direction;
     Vector2 receivedMovement;
 
@@ -42,21 +42,14 @@ public class PlayerMovement : MonoBehaviourPun, IPunObservable
     {
         if (pv.IsMine)
         {
-            if (Input.GetAxis("Horizontal") > Input.GetAxis("Vertical"))
-            {
-                direction = (Input.GetAxis("Horizontal") > 0) ? 3 : 2;
-            }
-            else
-            {
-                direction = (Input.GetAxis("Vertical") > 0) ? 0 : 1;
-            }
-            //lastMovement.x = Mathf.Clamp(lastMovement.x + Input.GetAxisRaw("Horizontal"), -1, 1);
-            //lastMovement.y = Mathf.Clamp(lastMovement.y + Input.GetAxisRaw("Vertical"), -1, 1);
+            movement.x += Input.GetAxisRaw("Horizontal");
+            movement.y += Input.GetAxisRaw("Vertical");
 
-            //animator.SetFloat("Horizontal", lastMovement.x);
-            //animator.SetFloat("Vertical", lastMovement.y);
+            movement = Vector3.Normalize(movement);
+
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
             //animator.SetFloat("Speed", lastMovement.sqrMagnitude);
-            animator.SetFloat("Direction", direction);
 
             //rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
@@ -83,7 +76,7 @@ public class PlayerMovement : MonoBehaviourPun, IPunObservable
             //Send the transform position to all the other instances
             //SendNext is only called when the a change occurs
             stream.SendNext(transform.position);
-            stream.SendNext(lastMovement);
+            stream.SendNext(movement);
         }
         //Reading pccurs when we are reading others tank position
         else if (stream.IsReading)
