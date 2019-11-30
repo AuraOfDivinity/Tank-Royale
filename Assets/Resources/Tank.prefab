@@ -67,7 +67,7 @@ Transform:
   - {fileID: 2936965110193681187}
   - {fileID: 772501655170427523}
   - {fileID: 5602483248084580820}
-  - {fileID: 5342718413293918908}
+  - {fileID: 3639053322372653358}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -157,7 +157,7 @@ MonoBehaviour:
   animator: {fileID: 3683336719378831502}
   playerCamera: {fileID: 3425641609647305363}
   nameText: {fileID: 1900179514836493891}
-  healthBar: {fileID: 5342718413293918630}
+  healthBar: {fileID: 3639053322372653359}
   pv: {fileID: 3937640801561153280}
 --- !u!95 &3683336719378831502
 Animator:
@@ -737,13 +737,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e880d4e328547db4fb79d85328034d22, type: 3}
---- !u!4 &5342718413293918908 stripped
+--- !u!4 &3639053322372653358 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8693536763696167491, guid: e880d4e328547db4fb79d85328034d22,
     type: 3}
   m_PrefabInstance: {fileID: 5342718413293919085}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5342718413293918630 stripped
+--- !u!114 &3639053322372653359 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8693536763696167490, guid: e880d4e328547db4fb79d85328034d22,
     type: 3}

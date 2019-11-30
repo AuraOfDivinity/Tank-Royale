@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8089317066030137384}
   - component: {fileID: 9027290676178999804}
-  - component: {fileID: 769546240665117876}
   - component: {fileID: 8707259095082877040}
+  - component: {fileID: 1200125746761487759}
   - component: {fileID: 4790890417642760542}
   - component: {fileID: 6778418837117030142}
   - component: {fileID: 121168699902847544}
@@ -84,24 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &769546240665117876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6642437136291381640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6ac5f5e7e2056644a1139e910d3b56b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitEffect: {fileID: 6916591772355270645, guid: c6041fd4de4c47846ac5978b4e2cf0fb,
-    type: 3}
-  pv: {fileID: 6778418837117030142}
-  rb: {fileID: 8707259095082877040}
-  tf: {fileID: 8089317066030137384}
-  bulletForce: 20
 --- !u!50 &8707259095082877040
 Rigidbody2D:
   serializedVersion: 4
@@ -123,6 +105,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1200125746761487759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6642437136291381640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c6730110bc63c4c960350d24b9a942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffect: {fileID: 3082024745062758679, guid: 19198459facf1ee4589b70d68509ca7a,
+    type: 3}
+  bulletForce: 30
 --- !u!61 &4790890417642760542
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133,7 +130,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0029603876, y: 0.0029604435}
